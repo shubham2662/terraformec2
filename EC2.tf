@@ -7,44 +7,17 @@
    } 
  } 
   
-provider "aws" { 
-
-region = var.region
-
+provider "aws" {
+region = "ap-south-1"
 
 }
- variable "region" {
-   
- }
-
-
-resource "aws_vpc" "main" {
-  cidr_block       = var.cidr_block
-  
-  instance_tenancy = "default"
-
-  tags = {
-    Name = "main"
-  }
-}
 
 
 
-variable "cidr_block" {
-
-  
-}
-
-resource "aws_instance" "thids" {
-  ami  = var.ami
-  
-  instance_type = "t2.micro"
-
-  tags = {
-    Name = "this"
-  }
-}
-
-variable "ami" {
-  
-}
+resource "aws_instance" "this" { 
+   ami = "ami-0a0f1259dd1c90938" 
+   instance_type = "t2.micro" 
+     tags = { 
+     Name = "test-spot" 
+   } 
+ } 
